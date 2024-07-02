@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+
+</style>
+<script>
+function displayScore(radioButton) {
+  // Get the parent row (assuming the radio button is inside a table row)
+  var row = radioButton.parentElement.parentElement;
+
+  // Find the score display element within the same row
+  var scoreDisplay = row.querySelector("span#scoreDisplay");
+
+  // Check if the score display element is found
+  if (scoreDisplay) {
+    scoreDisplay.textContent = radioButton.value;
+    
+    // Update the total score
+    updateTotalScore();
+  } else {
+    console.error("Score display element not found for this row.");
+  }
+}
+
+function updateTotalScore() {
+  // Get all score display elements
+  var scoreDisplays = document.querySelectorAll("span#scoreDisplay");
+  
+  // Initialize total score
+  var totalScore = 0;
+  
+  // Loop through all score displays and accumulate their values
+  for (var i = 0; i < scoreDisplays.length; i++) {
+    var score = parseInt(scoreDisplays[i].textContent);
+    if (!isNaN(score)) { // Check if the value is a number
+      totalScore += score;
+    } else {
+      console.warn("Invalid score value found in a score display element.");
+    }
+  }
+  
+  // Update the total score display element (assuming there's an element with ID "totalScore")
+  document.getElementById("totalScore").textContent = "Total Score: " + totalScore;
+}
+    </script>
+</head>
+<body>
+
+<h2>T Construct</h2>
+
+<table>
+  <tr>
+    <th>Name of the criteria</th>
+    <th>Guidelines for checking (for DCR/IAV/PAL/GBL)</th>
+    <th>Not at all or minimally incorporated</th>
+    <th>Partially incorporated</th>
+    <th>Completely incorporated</th>
+    <th>Score</th>
+  </tr>
+  
+      <tr>
+        <td>Interface Design: Enable Intuitive Use</td>
+        <td>Check if the interface of the product follows principles of interaction design?
+            <br><br>Look at: Visual elements such as  buttons.<br><br>
+            Check whether:<br>
+            <ul><li>The student can easily find the visual elements and functions required to do the given task (e.g., pause, play, exit) and the buttons clearly indicate what function they do.</li>
+            <li>The interface contains sufficient and clear signs informing students about how to use elements of the interface to achieve a desired purpose/goal.</li>
+            <li>The interface is consistent i.e. it follows rules allowing similar operations and using similar elements for achieving similar tasks.
+                 There are no exceptions to a rule. (e.g., if the action to  highlight any graphical object is by clicking the left mouse button and throughout the product it is the same on the interface)</li>
+            <li>The interface exploits intuitive mappings, meaning the controls to something closely resemble what they affect.
+            </li>
+            </ul> </td>
+        <td>  <input type="radio" name="radioGroup1" id="radio1" value="5" onclick="displayScore(this)"></td>
+        <td>  <input type="radio" name="radioGroup1" id="radio2" value="15" onclick="displayScore(this)"></td>
+        <td>  <input type="radio" name="radioGroup1" id="radio3" value="30" onclick="displayScore(this)"></td>
+        <td><span id="scoreDisplay"></span></td>
+        </tr>
+
+        
+            <tr>
+              <td>Navigation and pace</td>
+              <td>Check if the interface provides students adequate control over navigation and pace within the product?<br><br>Look at: content, assessment, examples, activities
+                <br><br>Check whether:<br>
+                  <ul><li>The interface contains obvious exit options.</li>
+                  <li>The interface allows students to explore the content at their desired pace. </li>
+                  <li>A single click will take the student to the desired video, assessment or activity</li>
+                  <li>The students can easily move to a certain aspect in the content, e.g., position in the video.</li>
+                  </ul> </td>
+              <td>  <input type="radio" name="radioGroup1" id="radio1" value="5" onclick="displayScore(this)"></td>
+              <td>  <input type="radio" name="radioGroup1" id="radio2" value="15" onclick="displayScore(this)"></td>
+              <td>  <input type="radio" name="radioGroup1" id="radio3" value="30" onclick="displayScore(this)"></td>
+              <td><span id="scoreDisplay"></span></td>
+              </tr>
+
+              
+                <tr>
+                  <td>Universal Design</td>
+                  <td>Check if the product is accessible to different types of students? 
+                    <br><br>Look at: Audio, video content, assessment, examples, activities
+                    <br><br>Check whether:<br>The product at least has the following features:<br>
+                      <ul><li>Make it easier for students to see and hear content (for e.g., an option to increase font size)</li>
+                      <li>Audio-only or video-only media provides a transcript and/ or on screen text/ caption.</li>
+                      <li>Text-only media has a voice-over matching with the text.</li>
+                      <li>Provide captions for all prerecorded / live audio (with or without video) content.</li>
+                      <li>Possibility of recording an answer and hearing assessment questions as voice-overs.</li>
+                      </ul> </td>
+                  <td>  <input type="radio" name="radioGroup1" id="radio1" value="5" onclick="displayScore(this)"></td>
+                  <td>  <input type="radio" name="radioGroup1" id="radio2" value="15" onclick="displayScore(this)"></td>
+                  <td>  <input type="radio" name="radioGroup1" id="radio3" value="30" onclick="displayScore(this)"></td>
+                  <td><span id="scoreDisplay"></span></td>
+                  </tr>
+
+                
+                    <tr>
+                      <td>Analytics for Students’ Progress</td>
+                      <td>Check if the  interface provides an easy-to-interpret  and actionable dashboard with student analytics?
+                      <br><br>Look at:  Dashboard.
+                      <br><br>Check whether:<br>
+                          <ul><li>The dashboard should be visible and easy to find. </li>
+                          <li>The dashboard clearly conveys the intended information about the students’ performance, progress, etc.</li>
+                          <li>The dashboard should be easily ‘learnable’ (‘Learnable’ means how easy it is for a first-time user to do the basic tasks).</li>
+                          <li>The dashboard should provide sufficient guidance to identify where the student needs additional support to make progress.</li> 
+                          <li>The dashboard analytics is customisable to the needs of the teacher.</li>
+                          <li>The dashboard design should support processes including data processing, awareness, reflection and impact.</li>                         </ul> </td>
+                      <td>  <input type="radio" name="radioGroup1" id="radio1" value="5" onclick="displayScore(this)"></td>
+                      <td>  <input type="radio" name="radioGroup1" id="radio2" value="15" onclick="displayScore(this)"></td>
+                      <td>  <input type="radio" name="radioGroup1" id="radio3" value="30" onclick="displayScore(this)"></td>
+                      <td><span id="scoreDisplay"></span></td>
+                      </tr>
+
+                
+                    <tr>
+                      <td>Content type-technology alignment</td>
+                      <td>Check if the visualization type chosen is suitable for teaching the corresponding content type?
+                      <br><br>Look at: Visualizations such as diagrams, videos, animations or simulations. 
+                      <br><br>Check whether:<br>
+                          <ul><li>Diagram is present if content type is fact</li>
+                          <li>Animation or video is available if content type is process</li>
+                          <li>Simulation is provided  if content type is concept/principle</li>
+                          </ul> </td>
+                      <td>  <input type="radio" name="radioGroup1" id="radio1" value="5" onclick="displayScore(this)"></td>
+                      <td>  <input type="radio" name="radioGroup1" id="radio2" value="15" onclick="displayScore(this)"></td>
+                      <td>  <input type="radio" name="radioGroup1" id="radio3" value="30" onclick="displayScore(this)"></td>
+                      <td><span id="scoreDisplay"></span></td>
+                      </tr>
+
+                      <tr>
+                        <td>Setting up a Game Environment (Note: Only evaluate Game based learning)</td>
+                        <td>Check if the game goals, rules, and game status is clearly communicated to students?
+                        <br><br>Look at Look at  game rules and game goals.<br>Game Rule should tell How to play the game and<br>Game Goal should tell what will the student achieve after completing the game?
+                        <br><br>Check whether:<br>
+                            <ul><li>There are one / few rules of the game.</li>
+                            <li>Rule(s) are simple to understand by the students.</li>
+                            <li>The game rules are effectively communicated prior to playing so that the burden is not on the student to understand the rule.</li>
+                            <li>Goal of the game is clear and is clearly communicated to the student.</li>
+                            </ul> </td>
+                        <td>  <input type="radio" name="radioGroup1" id="radio1" value="5" onclick="displayScore(this)"></td>
+                        <td>  <input type="radio" name="radioGroup1" id="radio2" value="15" onclick="displayScore(this)"></td>
+                        <td>  <input type="radio" name="radioGroup1" id="radio3" value="30" onclick="displayScore(this)"></td>
+                        <td><span id="scoreDisplay"></span></td>
+                        </tr>
+            
+            </table>
+
+            <p id="totalScore" style="text-align:right">Total Score: 0</p>
+            
+              
+
+</body>  
+
+</html>
+

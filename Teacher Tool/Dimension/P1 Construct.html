@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      td,
+      th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+      }
+    </style>
+    <script>
+      function displayScore(radioButton) {
+        // Get the parent row (assuming the radio button is inside a table row)
+        var row = radioButton.parentElement.parentElement;
+
+        // Find the score display element within the same row
+        var scoreDisplay = row.querySelector("span#scoreDisplay");
+
+        // Check if the score display element is found
+        if (scoreDisplay) {
+          scoreDisplay.textContent = radioButton.value;
+
+          // Update the total score
+          updateTotalScore();
+        } else {
+          console.error("Score display element not found for this row.");
+        }
+      }
+
+      function updateTotalScore() {
+        // Get all score display elements
+        var scoreDisplays = document.querySelectorAll("span#scoreDisplay");
+
+        // Initialize total score
+        var totalScore = 0;
+
+        // Loop through all score displays and accumulate their values
+        for (var i = 0; i < scoreDisplays.length; i++) {
+          var score = parseInt(scoreDisplays[i].textContent);
+          if (!isNaN(score)) {
+            // Check if the value is a number
+            totalScore += score;
+          } else {
+            console.warn(
+              "Invalid score value found in a score display element."
+            );
+          }
+        }
+
+        // Update the total score display element (assuming there's an element with ID "totalScore")
+        document.getElementById("totalScore").textContent =
+          "Total Score: " + totalScore;
+      }
+    </script>
+  </head>
+  <body>
+    <h2>P Construct</h2>
+
+    <table>
+      <tr>
+        <th>Name of the criteria</th>
+        <th>Guidelines for checking (for DCR/IAV/PAL/GBL)</th>
+        <th>Not at all or minimally incorporated</th>
+        <th>Partially incorporated</th>
+        <th>Completely incorporated</th>
+        <th>Score</th>
+      </tr>
+
+      <tr>
+        <td>Constructivist Approach</td>
+        <td>
+          Check if the product design / content promotes a hands-on and
+          interactive approach to learning? <br /><br />Look at: AV content,
+          examples, activities <br /><br />Check whether:<br />
+          <ul>
+            <li>
+              The product moves beyond mere transmission of information where
+              the only role of the student is to be a passive listener.
+            </li>
+            <li>
+              The product allows the students to build their own meaning of the
+              topic
+            </li>
+            <li>
+              The knowledge construction process takes into account the
+              student's previous knowledge constructions, beliefs and attitudes
+            </li>
+            <li>
+              There are very well-sequenced set of multiple examples and
+              applications of the same topic
+            </li>
+            <li>
+              There are in-video reflection spot questions that move beyond
+              recall level questions. Such questions need to be solved within 2
+              minutes, and there is feedback provided for the question in the
+              same video.
+            </li>
+            <li>
+              There is scope for the student to apply the concept using
+              hands-on-activities (Note: this bullet point might not hold for
+              IAV products without a platform)
+            </li>
+          </ul>
+        </td>
+        <td>
+          <input
+            type="radio"
+            name="radioGroup1"
+            id="radio1"
+            value="5"
+            onclick="displayScore(this)"
+          />
+        </td>
+        <td>
+          <input
+            type="radio"
+            name="radioGroup1"
+            id="radio2"
+            value="15"
+            onclick="displayScore(this)"
+          />
+        </td>
+        <td>
+          <input
+            type="radio"
+            name="radioGroup1"
+            id="radio3"
+            value="30"
+            onclick="displayScore(this)"
+          />
+        </td>
+        <td><span id="scoreDisplay"></span></td>
+      </tr>
+
+      <tr>
+        <td>Addressing learning gaps</td>
+        <td>
+          Check if the content effectively addresses common students' learning
+          gaps? <br /><br />Look at: AV content, examples, activities
+          <br /><br />Check whether:<br />
+          <ul>
+            <li>
+              The content provides opportunities to the student to identify
+              their alternate conception/ learning gaps themselves that are
+              related to the content being covered
+            </li>
+            <li>
+              This is followed by their effective redressal in the same video or
+              content.
+            </li>
+          </ul>
+          Example: A taller bottle need not always hold more liquid caters to
+          identification of a possible learning gap, and explaining the
+          rationale of how to understand it or how to arrive at this
+          understanding refers to redressal
+        </td>
+        <td>
+          <input
+            type="radio"
+            name="radioGroup1"
+            id="radio1"
+            value="5"
+            onclick="displayScore(this)"
+          />
+        </td>
+        <td>
+          <input
+            type="radio"
+            name="radioGroup1"
+            id="radio2"
+            value="15"
+            onclick="displayScore(this)"
+          />
+        </td>
+        <td>
+          <input
+            type="radio"
+            name="radioGroup1"
+            id="radio3"
+            value="30"
+            onclick="displayScore(this)"
+          />
+        </td>
+        <td><span id="scoreDisplay"></span></td>
+      </tr>
+
+      <tr>
+        <td>Content in context</td>
+        <td>
+          Check if the content has incorporated appropriate real-life context?
+          <br /><br />Look at: AV content, examples, activities and assessments.
+          <br /><br />Check whether:<br />
+          <ul>
+            <li>
+              The context provided is relevant to the context of the student
+              wherever required.
+            </li>
+            <li>
+              The context provided is sufficient for the students to master the
+              specific skill (e.g., showing weights might be relevant but not
+              sufficient for the students to understand what to do with it or
+              the concept of measurement)
+            </li>
+            <li>
+              The context does not contain scenarios involving violence, combat,
+              gambling or stereotyping
+            </li>
+            <li>
+              The product provides opportunities to see the application of the
+              skill in the lives of the students
+            </li>
+          </ul>
+        </td>
+        <td>
+          <input
+            type="radio"
+            name="radioGroup1"
+            id="radio1"
+            value="5"
+            onclick="displayScore(this)"
+          />
+        </td>
+        <td>
+          <input
+            type="radio"
+            name="radioGroup1"
+            id="radio2"
+            value="15"
+            onclick="displayScore(this)"
+          />
+        </td>
+        <td>
+          <input
+            type="radio"
+            name="radioGroup1"
+            id="radio3"
+            value="30"
+            onclick="displayScore(this)"
+          />
+        </td>
+        <td><span id="scoreDisplay"></span></td>
+      </tr>
+
+      <tr>
+        <td>Cognitive Engagement</td>
+        <td>
+          Check if the content presentation style and the graphics have the
+          potential to engage students effectively in the learning process?
+          <br /><br />Look at: AV content <br /><br />Check whether:<br />
+          <ul>
+            <li>
+              There is a use of conversational style rather than a formal speech
+              (e.g., prefer the use of ‘us’ or ‘we’ over an instruction in
+              passive voice)
+            </li>
+            <li>
+              Visual cues (e.g., highlight) to draw the student’s attention to a
+              specific part of the screen.
+            </li>
+            <li>
+              Verbal cues (e.g., voice modulation) to engage the students.
+            </li>
+            <li>
+              Use of graphics that are relevant to the topic and can engage the
+              student. There are no unnecessary graphics, sound, or presentation
+              style that might engage the student but are not relevant to the
+              content (e.g., background music or irrelevant texts in the
+              background)
+            </li>
+          </ul>
+        </td>
+        <td>
+          <input
+            type="radio"
+            name="radioGroup1"
+            id="radio1"
+            value="5"
+            onclick="displayScore(this)"
+          />
+        </td>
+        <td>
+          <input
+            type="radio"
+            name="radioGroup1"
+            id="radio2"
+            value="15"
+            onclick="displayScore(this)"
+          />
+        </td>
+        <td>
+          <input
+            type="radio"
+            name="radioGroup1"
+            id="radio3"
+            value="30"
+            onclick="displayScore(this)"
+          />
+        </td>
+        <td><span id="scoreDisplay"></span></td>
+      </tr>
+
+      <tr>
+        <td>Motivational features</td>
+        <td>
+          Check if the product includes motivational factors that prompt
+          students to interact further with the content? <br /><br />Look at: AV
+          content <br /><br />Check whether:<br />
+          <ul>
+            <li>
+              Incentives like rewards (stars, badges etc), certificates
+              depending on the students’ performance.
+            </li>
+            <li>
+              Visual progression of mastery levels or, labels like you are
+              familiar, master, proficient in that topic
+            </li>
+            <li>
+              Motivational messages and/or sounds provided to students
+              encouraging when student answered incorrectly or correctly
+            </li>
+            <li>
+              Motivation is seen not only when students are providing accurate
+              responses but also when students are making (repeated) mistakes
+            </li>
+            <li>
+              Only if your product follows a gamified design: Performance-based
+              unlocking of game activities/challenges in game/gamified design
+            </li>
+          </ul>
+          Note: IAV products might not have external motivational features but
+          motivation embedded in the video like words of encouragement, image,
+          stars or sound
+        </td>
+        <td>
+          <input
+            type="radio"
+            name="radioGroup1"
+            id="radio1"
+            value="5"
+            onclick="displayScore(this)"
+          />
+        </td>
+        <td>
+          <input
+            type="radio"
+            name="radioGroup1"
+            id="radio2"
+            value="15"
+            onclick="displayScore(this)"
+          />
+        </td>
+        <td>
+          <input
+            type="radio"
+            name="radioGroup1"
+            id="radio3"
+            value="30"
+            onclick="displayScore(this)"
+          />
+        </td>
+        <td><span id="scoreDisplay"></span></td>
+      </tr>
+
+      <tr>
+        <td>Cognitive Level</td>
+        <td>
+          Check if higher order thinking skills (HOTS) are being addressed in
+          the content, assessments or activities? <br /><br />Look at: AV
+          content, assessments and activities. <br /><br />Check whether:<br />
+          <ul>
+            <li>
+              Higher-order thinking skills (HOTS), relevant to the topic, are
+              being sufficiently addressed in the content, examples or
+              activities apart from lower-order thinking skills
+            </li>
+            <li>
+              The assessments or questions are sufficient to challenge the
+              students in a meaningful way. That is, they include HOTs where the
+              student can apply the targeted skills in a diverse context, or
+              move beyond recall and understand level, in BLOOM’s taxonomy.
+            </li>
+          </ul>
+        </td>
+        <td>
+          <input
+            type="radio"
+            name="radioGroup1"
+            id="radio1"
+            value="5"
+            onclick="displayScore(this)"
+          />
+        </td>
+        <td>
+          <input
+            type="radio"
+            name="radioGroup1"
+            id="radio2"
+            value="15"
+            onclick="displayScore(this)"
+          />
+        </td>
+        <td>
+          <input
+            type="radio"
+            name="radioGroup1"
+            id="radio3"
+            value="30"
+            onclick="displayScore(this)"
+          />
+        </td>
+        <td><span id="scoreDisplay"></span></td>
+      </tr>
+
+      <tr>
+        <td>Quality of feedback</td>
+        <td>
+          Check if the assessment questions or activities provide students with
+          useful and comprehensive feedback. <br /><br />Look at: activities and
+          assessment questions. <br /><br />Check whether:<br />
+          <ul>
+            <li>
+              The feedback specifies whether the response was correct or
+              incorrect.
+            </li>
+            <li>
+              The feedback provides the correct response and explanation if the
+              answer was incorrect.
+            </li>
+            <li>
+              The feedback directs the students to revisit the content that was
+              relevant to the question, in case of an incorrect response.
+            </li>
+          </ul>
+        </td>
+        <td>
+          <input
+            type="radio"
+            name="radioGroup1"
+            id="radio1"
+            value="5"
+            onclick="displayScore(this)"
+          />
+        </td>
+        <td>
+          <input
+            type="radio"
+            name="radioGroup1"
+            id="radio2"
+            value="15"
+            onclick="displayScore(this)"
+          />
+        </td>
+        <td>
+          <input
+            type="radio"
+            name="radioGroup1"
+            id="radio3"
+            value="30"
+            onclick="displayScore(this)"
+          />
+        </td>
+        <td><span id="scoreDisplay"></span></td>
+      </tr>
+
+      <tr>
+        <td>Learning Objective - Assessment Alignment</td>
+        <td>
+          Check if the assessment questions aligned to the specific learning
+          objectives? <br /><br />Look at: activities and assessment questions.
+          <br /><br />Check whether:<br />
+          <ul>
+            <li>Assessment questions are present</li>
+            <li>
+              Learning objective(s) is/are clearly specified without any
+              ambiguity
+            </li>
+            <li>
+              All the assessment questions and the stated learning objectives
+              are completely aligned
+            </li>
+          </ul>
+        </td>
+        <td>
+          <input
+            type="radio"
+            name="radioGroup1"
+            id="radio1"
+            value="5"
+            onclick="displayScore(this)"
+          />
+        </td>
+        <td>
+          <input
+            type="radio"
+            name="radioGroup1"
+            id="radio2"
+            value="15"
+            onclick="displayScore(this)"
+          />
+        </td>
+        <td>
+          <input
+            type="radio"
+            name="radioGroup1"
+            id="radio3"
+            value="30"
+            onclick="displayScore(this)"
+          />
+        </td>
+        <td><span id="scoreDisplay"></span></td>
+      </tr>
+
+      <tr>
+        <td>Appropriate Pedagogical Strategies</td>
+        <td>
+          Check if appropriate pedagogical strategies are used for teaching the
+          content? <br /><br />Look at: AV content, activities, examples and
+          assessment. <br /><br />Check whether:<br />
+          <ul>
+            <li>
+              The content uses play-based teaching rather than didactic
+              communication. E.g., letter tracing to teach writing in literacy /
+              dragging and dropping numbers in order to build number sense / use
+              of local toys and games to build targeted skill(s) over text or
+              video
+            </li>
+            <li>
+              There is a clear and explicit instruction to help the student
+              master the specific skill. E.g., the targeted skill is
+              comprehension (literacy) and the content explains how to master
+              the skill in a play-based approach rather than just leave the
+              users with a story and a set of questions and expect them to
+              master the skill on their own
+            </li>
+            <li>
+              Use of child-centred pedagogy where the students gets many chances
+              to express themselves which moves beyond typing long responses or
+              choosing MCQ options
+            </li>
+          </ul>
+        </td>
+        <td>
+          <input
+            type="radio"
+            name="radioGroup1"
+            id="radio1"
+            value="5"
+            onclick="displayScore(this)"
+          />
+        </td>
+        <td>
+          <input
+            type="radio"
+            name="radioGroup1"
+            id="radio2"
+            value="15"
+            onclick="displayScore(this)"
+          />
+        </td>
+        <td>
+          <input
+            type="radio"
+            name="radioGroup1"
+            id="radio3"
+            value="30"
+            onclick="displayScore(this)"
+          />
+        </td>
+        <td><span id="scoreDisplay"></span></td>
+      </tr>
+    </table>
+
+    <p id="totalScore" style="text-align: right">Total Score: 0</p>
+  </body>
+</html>

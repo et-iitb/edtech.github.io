@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+
+</style>
+<script>
+function displayScore(radioButton) {
+  // Get the parent row (assuming the radio button is inside a table row)
+  var row = radioButton.parentElement.parentElement;
+
+  // Find the score display element within the same row
+  var scoreDisplay = row.querySelector("span#scoreDisplay");
+
+  // Check if the score display element is found
+  if (scoreDisplay) {
+    scoreDisplay.textContent = radioButton.value;
+    
+    // Update the total score
+    updateTotalScore();
+  } else {
+    console.error("Score display element not found for this row.");
+  }
+}
+
+function updateTotalScore() {
+  // Get all score display elements
+  var scoreDisplays = document.querySelectorAll("span#scoreDisplay");
+  
+  // Initialize total score
+  var totalScore = 0;
+  
+  // Loop through all score displays and accumulate their values
+  for (var i = 0; i < scoreDisplays.length; i++) {
+    var score = parseInt(scoreDisplays[i].textContent);
+    if (!isNaN(score)) { // Check if the value is a number
+      totalScore += score;
+    } else {
+      console.warn("Invalid score value found in a score display element.");
+    }
+  }
+  
+  // Update the total score display element (assuming there's an element with ID "totalScore")
+  document.getElementById("totalScore").textContent = "Total Score: " + totalScore;
+}
+    </script>
+</head>
+<body>
+
+<h2>P2 Construct</h2>
+
+<table>
+  <tr>
+    <th>Name of the criteria</th>
+    <th>Guidelines for checking (for DCR/IAV/PAL/GBL)</th>
+    <th>Not at all or minimally incorporated</th>
+    <th>Partially incorporated</th>
+    <th>Completely incorporated</th>
+    <th>Score</th>
+  </tr>
+  
+      <tr>
+        <td>Logical chunking and connectedness</td>
+        <td>Check if  the content is structured in a way that would lead to meaningful learning?
+            <br><br>Look at: Video content.
+            <br><br>Check whether:<br>
+            <ul><li>The content videos are chunked into short, easily digestible units not exceeding 10 mins, discussing a single concept.</li>
+            <li>The chunking is logical and not random. For example (secondary grade): Grade 8. An AV introduces what is a polygon followed by an activity question asking how many vertices and sides will a pentagon have. The next video gives feedback in terms of introducing classification of polygons.</li>
+            <li>There are associated practice questions/ activities and there is a connection between the videos and the practice questions/learning activities on the same topic, should be made explicit to users (teachers/students) to aid meaningful learning.</li>
+            </ul> </td>
+        <td>  <input type="radio" name="radioGroup1" id="radio1" value="5" onclick="displayScore(this)"></td>
+        <td>  <input type="radio" name="radioGroup1" id="radio2" value="15" onclick="displayScore(this)"></td>
+        <td>  <input type="radio" name="radioGroup1" id="radio3" value="30" onclick="displayScore(this)"></td>
+        <td><span id="scoreDisplay"></span></td>
+        </tr>
+
+        
+            <tr>
+              <td>Teacher support: in class and out of class</td>
+              <td>Check if appropriate support is  blended into the product for teachers to use the product effectively?
+              <br><br>Note: This should include only the support that is provided within the product itself.<br><br>Look at: contents in the teacher login, video content. 
+              <br><br>Check whether:<br>
+                  <ul><li>The product provides detailed, stepwise guidance to teachers on how and when to use the content in their teaching process.</li>
+                  <li>Guidance is provided on how to meaningfully use the technological features. With this guidance, the teacher can design and implement the lesson to make effective use of the technology features (like interactivity) with a suitable pedagogical strategy for the content in the given class time.</li>
+                  <li>The product allows the teacher to monitor the progress of the students.</li>
+                  <li>The product allows teachers to assign activities, tests and challenges of different levels for their children to attempt.</li>
+                  </ul>
+                </td>
+              <td>  <input type="radio" name="radioGroup1" id="radio1" value="5" onclick="displayScore(this)"></td>
+              <td>  <input type="radio" name="radioGroup1" id="radio2" value="15" onclick="displayScore(this)"></td>
+              <td>  <input type="radio" name="radioGroup1" id="radio3" value="30" onclick="displayScore(this)"></td>
+              <td><span id="scoreDisplay"></span></td>
+              </tr>
+
+              
+                <tr>
+                  <td>Opportunities for collaboration</td>
+                  <td>Check if  there are opportunities for the students to collaborate with each other?
+                  <br><br>Look at: Video content, text content, assessments, activities, examples.
+                    <br><br>Check whether:<br>
+                      <ul><li>Product provides opportunities to the students to do group activity with it.</li>
+                      <li>The structure of the activity is such that there is a high likelihood that all students in the class will participate.</li>
+                      <li>The activity also requires the students to engage in logical argumentation with their group members or provide feedback to them.</li>
+                      </ul> </td>
+                  <td>  <input type="radio" name="radioGroup1" id="radio1" value="5" onclick="displayScore(this)"></td>
+                  <td>  <input type="radio" name="radioGroup1" id="radio2" value="15" onclick="displayScore(this)"></td>
+                  <td>  <input type="radio" name="radioGroup1" id="radio3" value="30" onclick="displayScore(this)"></td>
+                  <td><span id="scoreDisplay"></span></td>
+                  </tr>
+
+                </table>
+
+            <p id="totalScore" style="text-align:right">Total Score: 0</p>
+            
+              
+
+</body>  
+
+</html>
+

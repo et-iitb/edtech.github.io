@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+
+</style>
+<script>
+function displayScore(radioButton) {
+  // Get the parent row (assuming the radio button is inside a table row)
+  var row = radioButton.parentElement.parentElement;
+
+  // Find the score display element within the same row
+  var scoreDisplay = row.querySelector("span#scoreDisplay");
+
+  // Check if the score display element is found
+  if (scoreDisplay) {
+    scoreDisplay.textContent = radioButton.value;
+    
+    // Update the total score
+    updateTotalScore();
+  } else {
+    console.error("Score display element not found for this row.");
+  }
+}
+
+function updateTotalScore() {
+  // Get all score display elements
+  var scoreDisplays = document.querySelectorAll("span#scoreDisplay");
+  
+  // Initialize total score
+  var totalScore = 0;
+  
+  // Loop through all score displays and accumulate their values
+  for (var i = 0; i < scoreDisplays.length; i++) {
+    var score = parseInt(scoreDisplays[i].textContent);
+    if (!isNaN(score)) { // Check if the value is a number
+      totalScore += score;
+    } else {
+      console.warn("Invalid score value found in a score display element.");
+    }
+  }
+  
+  // Update the total score display element (assuming there's an element with ID "totalScore")
+  document.getElementById("totalScore").textContent = "Total Score: " + totalScore;
+}
+    </script>
+</head>
+<body>
+
+<h2>Specific to Game Based Learning</h2>
+
+<table>
+  <tr>
+    <th>Name of the criteria</th>
+    <th>Guidelines for checking (for DCR/IAV/PAL/GBL)</th>
+    <th>Not at all or minimally incorporated</th>
+    <th>Partially incorporated</th>
+    <th>Completely incorporated</th>
+    <th>Score</th>
+  </tr>
+  
+      <tr>
+        <td>Student agency</td>
+        <td>Check if the product provides adequate learner agency, meaning it allows students to take charge of their learning experiences, set their own goals, make decisions about their learning paths, and reflect on their progress.
+            <br><br>Look at: Title of the AV content.
+            <br><br>Check whether:<br>
+            <ul><li>It is possible to set or reset their learning goals, choose which skills they want to practice as game activities, which topic or challenges to attempt in what sequence and so on.</li>
+            <li>Immersive game or role-playing game: learners can choose their role i.e. have control over their avatars (in terms of appearance, actions etc.). Learners can select a role from pre-created roles or create a role based on a template.</li>
+            <li>Tutorial based game or drill-and-practice games: there is scope to practice more than once and the same type of skills are getting assessed.</li>
+            </ul> </td>
+        <td>  <input type="radio" name="radioGroup1" id="radio1" value="5" onclick="displayScore(this)"></td>
+        <td>  <input type="radio" name="radioGroup1" id="radio2" value="15" onclick="displayScore(this)"></td>
+        <td>  <input type="radio" name="radioGroup1" id="radio3" value="30" onclick="displayScore(this)"></td>
+        <td><span id="scoreDisplay"></span></td>
+        </tr>
+
+        
+            <tr>
+              <td>Social Learning</td>
+              <td>Check if the product provides opportunities for learners to achieve their learning goals through social interaction?
+                <br><br>Check whether: The game should provide opportunities for social learning in one or more of the ways listed below: 
+                <ul>
+                <li>Collaboration: Learners may converse with other learners to achieve a common goal. </li>
+                  <li>Competition: Synchronous (where an individual plays against other individual players) or, asynchronous (where an individual competes against previously recorded performance of peers) competition to help learners master the skill</li>
+                  <li>Team-based play: Individuals form (small) groups to compete with other groups. Within a team, team members have to collaborate and cooperate to play.</li>
+                  <li>Promotes anonymity during interaction in the game</li>
+                  </ul>
+                  </td>
+              <td>  <input type="radio" name="radioGroup1" id="radio1" value="5" onclick="displayScore(this)"></td>
+              <td>  <input type="radio" name="radioGroup1" id="radio2" value="15" onclick="displayScore(this)"></td>
+              <td>  <input type="radio" name="radioGroup1" id="radio3" value="30" onclick="displayScore(this)"></td>
+              <td><span id="scoreDisplay"></span></td>
+              </tr>
+
+                </table>
+
+            <p id="totalScore" style="text-align:right">Total Score: 0</p>
+            
+              
+
+</body>  
+
+</html>
+

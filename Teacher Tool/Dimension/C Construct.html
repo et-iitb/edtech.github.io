@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+
+</style>
+<script>
+function displayScore(radioButton) {
+  // Get the parent row (assuming the radio button is inside a table row)
+  var row = radioButton.parentElement.parentElement;
+
+  // Find the score display element within the same row
+  var scoreDisplay = row.querySelector("span#scoreDisplay");
+
+  // Check if the score display element is found
+  if (scoreDisplay) {
+    scoreDisplay.textContent = radioButton.value;
+    
+    // Update the total score
+    updateTotalScore();
+  } else {
+    console.error("Score display element not found for this row.");
+  }
+}
+
+function updateTotalScore() {
+  // Get all score display elements
+  var scoreDisplays = document.querySelectorAll("span#scoreDisplay");
+  
+  // Initialize total score
+  var totalScore = 0;
+  
+  // Loop through all score displays and accumulate their values
+  for (var i = 0; i < scoreDisplays.length; i++) {
+    var score = parseInt(scoreDisplays[i].textContent);
+    if (!isNaN(score)) { // Check if the value is a number
+      totalScore += score;
+    } else {
+      console.warn("Invalid score value found in a score display element.");
+    }
+  }
+  
+  // Update the total score display element (assuming there's an element with ID "totalScore")
+  document.getElementById("totalScore").textContent = "Total Score: " + totalScore;
+}
+    </script>
+</head>
+<body>
+
+<h2>C Construct</h2>
+
+<table>
+  <tr>
+    <th>Name of the criteria</th>
+    <th>Guidelines for checking (for DCR/IAV/PAL/GBL)</th>
+    <th>Not at all or minimally incorporated</th>
+    <th>Partially incorporated</th>
+    <th>Completely incorporated</th>
+    <th>Score</th>
+  </tr>
+  
+      <tr>
+        <td>Content accuracy and clarity</td>
+        <td> Check if the content is accurate, follows correct symbols, standard norms of representation,
+            uses appropriate terminology and is up-to-date with respect to relevant advances in the topic?<br><br>Look at: Audio visuals describing the topic, 
+            content, assessments, activities and examples.<br><br>Check whether:<br>
+            <ul><li>The content uses scientifically accurate and grade-appropriate scientific information, phenomena, representations and pronunciations</li>
+            <li>The practice questions, activities and assessments (wherever present) are clear and correct.</li>
+            <li>The solutions of the practice questions, activities and assessments (wherever present) are clear and correct.</li>
+            <li>Advances in science are mentioned in the topic which are appropriate for the corresponding grade. For eg. Information about recent disease outbreaks like COVID etc.</li>
+            </ul> </td>
+        <td>  <input type="radio" name="radioGroup1" id="radio1" value="5" onclick="displayScore(this)"></td>
+        <td>  <input type="radio" name="radioGroup1" id="radio2" value="15" onclick="displayScore(this)"></td>
+        <td>  <input type="radio" name="radioGroup1" id="radio3" value="30" onclick="displayScore(this)"></td>
+        <td><span id="scoreDisplay"></span></td>
+        </tr>
+
+        
+            <tr>
+              <td>Language comprehensibility</td>
+              <td>Check if the language is appropriate and easy to understand for the students?
+                <br><br>Look at: the voice over and text used in the video content, text content, assessments, activities and examples
+                <br><br>Check whether:<br>
+                  <ul><li>The vocabulary used is familiar to the students of the particular age group.</li>
+                  <li>An Indian accent is used and easy-to-follow for the students of the particular age group. There should not be use of slang or informal language like  gonna, wanna, gotcha.</li>
+                  <li>The sentences spoken or those appearing on-screen are short, legible and simple to follow.</li>
+                  <li>Vernacular (Regional) language can be used to support comprehension.</li>
+                  </ul> </td>
+              <td>  <input type="radio" name="radioGroup1" id="radio1" value="5" onclick="displayScore(this)"></td>
+              <td>  <input type="radio" name="radioGroup1" id="radio2" value="15" onclick="displayScore(this)"></td>
+              <td>  <input type="radio" name="radioGroup1" id="radio3" value="30" onclick="displayScore(this)"></td>
+              <td><span id="scoreDisplay"></span></td>
+              </tr>
+
+              
+                <tr>
+                  <td>Inclusivity </td>
+                  <td>Check if  the product includes representation of the diverse groups that the students are likely to see around them? 
+                    <br><br>Look at: audio-videos describing the topic, content, assessments, activities, examples.
+                    <br><br>Check whether:<br>
+                      <ul><li>The content includes diverse representations at least in terms of gender, ability (including children with special needs), appearance (such as skin and hair color, and body types), and setting (rural or urban environments).</li>
+                      <li>There are no stereotypes associated with the identities presented to the students (e.g., individuals of a certain gender, race, or caste are not depicted in stereotypical professions or roles, such as mothers solely as homemakers or main characters always having a white complexion).</li>
+                      </ul> </td>
+                  <td>  <input type="radio" name="radioGroup1" id="radio1" value="5" onclick="displayScore(this)"></td>
+                  <td>  <input type="radio" name="radioGroup1" id="radio2" value="15" onclick="displayScore(this)"></td>
+                  <td>  <input type="radio" name="radioGroup1" id="radio3" value="30" onclick="displayScore(this)"></td>
+                  <td><span id="scoreDisplay"></span></td>
+                  </tr>
+
+                
+                    <tr>
+                      <td>Curriculum alignment and Skill coverage</td>
+                      <td>Check if the product is aligned to the targeted curriculum and specific learning goals?
+                      <br><br>Look at: content of videos, assessments, activities, examples.
+                        <br><br>Check whether:<br>
+                          <ul><li>The product comprehensively covers all the topics outlined in the specific curriculum to which it is mapped (e.g., aligning with the NCERT curriculum if the product is mapped to it).</li>
+                          <li>The content covers skills, pedagogy and assessment as prescribed by various bodies like NCF, NEP, NCERT</li>
+                          </ul> </td>
+                      <td>  <input type="radio" name="radioGroup1" id="radio1" value="5" onclick="displayScore(this)"></td>
+                      <td>  <input type="radio" name="radioGroup1" id="radio2" value="15" onclick="displayScore(this)"></td>
+                      <td>  <input type="radio" name="radioGroup1" id="radio3" value="30" onclick="displayScore(this)"></td>
+                      <td><span id="scoreDisplay"></span></td>
+                      </tr>
+
+                
+                    <tr>
+                      <td>Bilingual use Note: Only evaluate if your content uses vernacular language.</td>
+                      <td>Check if  the product includes use of English to introduce students to technical terms (like atoms, cell, organs, light rays etc., laws, names of processes like pasteurization, germination, etc.)?
+                      <br><br>Look at: content of videos, assessments, activities, examples.
+                      <br><br>Check whether:<br>
+                          <ul><li>The voice-over uses English scientific terms within a vernacular sentence while explaining the concept, such as "Tissue kya hota hai? Group of cell ko hum bolte hai tissue, matlab bahut sare cell jab apas mein combine ho jate hai wo ek tissue ka nirmaad karte hai.”</li>
+                          <li>Onscreen, the English terms should be displayed, preferably with transliteration (i.e. English terms written in the vernacular script).</li>
+                          <li>For assessment or activity questions, English technical terms should not be omitted from questions in the vernacular language. Vernacular questions should include English translations or incorporate English technical terms in brackets.</li>
+                          </ul> </td>
+                      <td>  <input type="radio" name="radioGroup1" id="radio1" value="5" onclick="displayScore(this)"></td>
+                      <td>  <input type="radio" name="radioGroup1" id="radio2" value="15" onclick="displayScore(this)"></td>
+                      <td>  <input type="radio" name="radioGroup1" id="radio3" value="30" onclick="displayScore(this)"></td>
+                      <td><span id="scoreDisplay"></span></td>
+                      </tr>
+
+                      
+            
+            </table>
+
+            <p id="totalScore" style="text-align:right">Total Score: 0</p>
+            
+              
+
+</body>  
+
+</html>
+

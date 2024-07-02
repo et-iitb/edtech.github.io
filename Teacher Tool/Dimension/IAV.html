@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+
+</style>
+<script>
+function displayScore(radioButton) {
+  // Get the parent row (assuming the radio button is inside a table row)
+  var row = radioButton.parentElement.parentElement;
+
+  // Find the score display element within the same row
+  var scoreDisplay = row.querySelector("span#scoreDisplay");
+
+  // Check if the score display element is found
+  if (scoreDisplay) {
+    scoreDisplay.textContent = radioButton.value;
+    
+    // Update the total score
+    updateTotalScore();
+  } else {
+    console.error("Score display element not found for this row.");
+  }
+}
+
+function updateTotalScore() {
+  // Get all score display elements
+  var scoreDisplays = document.querySelectorAll("span#scoreDisplay");
+  
+  // Initialize total score
+  var totalScore = 0;
+  
+  // Loop through all score displays and accumulate their values
+  for (var i = 0; i < scoreDisplays.length; i++) {
+    var score = parseInt(scoreDisplays[i].textContent);
+    if (!isNaN(score)) { // Check if the value is a number
+      totalScore += score;
+    } else {
+      console.warn("Invalid score value found in a score display element.");
+    }
+  }
+  
+  // Update the total score display element (assuming there's an element with ID "totalScore")
+  document.getElementById("totalScore").textContent = "Total Score: " + totalScore;
+}
+    </script>
+</head>
+<body>
+
+<h2>PAL</h2>
+
+<table>
+  <tr>
+    <th>Name of the criteria</th>
+    <th>Guidelines for checking (for DCR/IAV/PAL/GBL)</th>
+    <th>Not at all or minimally incorporated</th>
+    <th>Partially incorporated</th>
+    <th>Completely incorporated</th>
+    <th>Score</th>
+  </tr>
+  
+      <tr>
+        <td>Facilitate goal setting</td>
+        <td>Check if each topic in your product has a meaningful title and is accompanied by a short description of the content that is indicative of their task value?
+            <br><br>Look at: Title of the AV content.
+            <br><br>Check whether:<br>
+            <ul><li>Each topic has a meaningful and accurate title to guide the user of its utility value.</li>
+            <li>There is an accompanying description that provides clear indication of their task value. </li>
+            </ul> </td>
+        <td>  <input type="radio" name="radioGroup1" id="radio1" value="5" onclick="displayScore(this)"></td>
+        <td>  <input type="radio" name="radioGroup1" id="radio2" value="15" onclick="displayScore(this)"></td>
+        <td>  <input type="radio" name="radioGroup1" id="radio3" value="30" onclick="displayScore(this)"></td>
+        <td><span id="scoreDisplay"></span></td>
+        </tr>
+
+        <tr>
+          <td>Adult support</td>
+          <td>Check if appropriate support is blended into the product which can support at-home learning? 
+
+            <br><br>Look at:  the support that is provided within the product itself.<br><br>
+            Note: Some  companies provide external support to the parents or teachers such as via social media, or training sessions, please mention it in the Rationale column.
+            <ul>
+            <li>Product has features to support the guardian on how to engage the student with the content.</li>
+              <li>Support is provided to effectively integrate a child's learning process at home, which is continued/not continued from school [depends on the product design]</li>
+              <li>Support is provided to make guardians aware of their child’s learning behavior to enhance task orientedness like encouraging children to do problem-solving, selection and decision-making regarding topic</li>
+              <li>Provision for guardians to suggest challenge activities or tests to their child</li>
+              <li>Support so that guardians/teachers can assign the activities to their children to attempt.</li>
+              </ul>
+              </td>
+          <td>  <input type="radio" name="radioGroup1" id="radio1" value="5" onclick="displayScore(this)"></td>
+          <td>  <input type="radio" name="radioGroup1" id="radio2" value="15" onclick="displayScore(this)"></td>
+          <td>  <input type="radio" name="radioGroup1" id="radio3" value="30" onclick="displayScore(this)"></td>
+          <td><span id="scoreDisplay"></span></td>
+          </tr>
+
+        
+
+              
+               
+                </table>
+
+            <p id="totalScore" style="text-align:right">Total Score: 0</p>
+            
+              
+
+</body>  
+
+</html>
+
